@@ -10,7 +10,7 @@ WebBrowser.maybeCompleteAuthSession();
 export default function Login(){
     useWarmUpBrowser();
     const { startOAuthFlow } = useOAuth({ strategy: "oauth_google" });
- 
+  
     const onPress = React.useCallback(async () => {
       try {
         const { createdSessionId, signIn, signUp, setActive } =

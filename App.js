@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import Login from './App/Screens/LoginScreen/Login';
-import {ClerkProvider, SignedIn, SignedOut} from  '@clerk/clerk-expo';
+import {ClerkProvider, SignedIn, SignedOut,useAuth } from  '@clerk/clerk-expo';
 import * as SecureStore from "expo-secure-store";
 import TabNavigation from './App/Navigations/TabNavigation';
 import { NavigationContainer } from '@react-navigation/native';
@@ -21,7 +21,9 @@ const tokenCache = {
       return;
     }
   },
+  
 };
+ 
  
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({

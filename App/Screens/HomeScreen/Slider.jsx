@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, StyleSheet, FlatList, Image } from "react-native";
 import GlobalApi from "../../Utils/GlobalApi";
+import Heading from "../../Components/Heading";
 
 export default function Slider() {
   const [slider, setSlider] =useState([]);
@@ -10,14 +11,14 @@ export default function Slider() {
 
   const getSliders = () => {
     GlobalApi.getSlider().then(resp => {
-      console.log("resp",resp.sliders);
+      // console.log("resp",resp.sliders);
       setSlider(resp?.sliders);
   });
 }
 
   return (
     <View>
-      <Text style={styles.heading}>Offers For you</Text>
+      <Heading text='Offer for you'/>
       <FlatList
             data={slider}
             horizontal={true}

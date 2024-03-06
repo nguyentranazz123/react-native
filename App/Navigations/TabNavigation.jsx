@@ -1,13 +1,13 @@
 import React from "react";
 import {View, Text} from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from "../Screens/HomeScreen/HomeScreen";
 import ProfileScreen from "../Screens/ProfileScreen/ProfileScreen";
-import BookingScreen from "../Screens/BookingScreen/BookingScreen";
 import { FontAwesome5 } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import Colors from "../Utils/Colors";
+import HomeNavigation from "./HomeNavigation";
+import BookingNavigation from "./BookingNavigation";
 
 
 
@@ -20,12 +20,20 @@ export default function TabNavigation(){
             headerShown:false,
             tabBarActiveTintColor:Colors.PRIMARY,
         }}>
-            <Tab.Screen name='home' component={HomeScreen} options={{
+            <Tab.Screen name='home' component={HomeNavigation} options={{
             tabBarLabel:({color})=>(
                 <Text style={{color:color, fontSize:15, marginTop:-7}}>Home</Text>
             ),
             tabBarIcon:({color, size})=>(
                 <FontAwesome5 name="home" size={size} color= {color} />
+            )
+            }}/>
+             <Tab.Screen name='booking' component={BookingNavigation}options={{
+            tabBarLabel:({color})=>(
+                <Text style={{color:color, fontSize:15, marginTop:-7}}>Booking</Text>
+            ),
+            tabBarIcon:({color, size})=>(
+                <Entypo name="bell" size={size} color={color} />
             )
             }}/>
             <Tab.Screen name='profile' component={ProfileScreen}options={{
@@ -36,14 +44,7 @@ export default function TabNavigation(){
                 <AntDesign name="profile" size={size} color={color}/>
             )
             }}/>
-            <Tab.Screen name='booking' component={BookingScreen}options={{
-            tabBarLabel:({color})=>(
-                <Text style={{color:color, fontSize:15, marginTop:-7}}>Booking</Text>
-            ),
-            tabBarIcon:({color, size})=>(
-                <Entypo name="bell" size={size} color={color} />
-            )
-            }}/>
+           
 
         </Tab.Navigator>
     )
